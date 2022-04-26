@@ -1,0 +1,4 @@
+--Here are the answers to the example questions in the final SQL project. 
+
+1. 
+SELECT * FROM Customer WHERE Country = "Brazil" ;
