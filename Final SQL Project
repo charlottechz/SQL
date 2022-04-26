@@ -1,4 +1,5 @@
-#Here are the answers to the example questions in the final SQL project. 
+# Here are potential answers to the example questions in the final SQL project. 
+# Note that there are often multiple ways to write SQL to come up with the same answer. 
 
 #1. 
 SELECT FirstName, LastName, CustomerId, Country 
