@@ -42,7 +42,7 @@ GROUP BY product
 #7. How many customers ordered more than 2 products at a time, and what was the average amount spent for those customers? 
 select 
 count(cust.acctnum), 
-avg(quantity)*price
+avg(quantity*price)
 FROM BIT_DB.FebSales Feb
 LEFT JOIN BIT_DB.customers cust
 ON FEB.orderid=cust.order_id
