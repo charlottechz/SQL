@@ -49,19 +49,28 @@ WHERE InvoiceDate BETWEEN '2009-01-01' AND '2009-12-31';
 #10. 
 SELECT t.Name, i.InvoiceLineId
 FROM chinook.Invoice_items i
-JOIN chinook.Tracks t ON i.TrackId = t.TrackId;
+JOIN chinook.Tracks t 
+ON i.TrackId = t.TrackId;
 
 #11. 
-SELECT t.Name, t.Composer, i.InvoiceLineId
-FROM chinook.Invoice_items i 
-JOIN chinook.Tracks t ON i.TrackId = t.TrackId;
+SELECT ar.name as Artist, t.Name as Track, i.InvoiceLineId
+FROM chinook.Invoice_items i
+LEFT JOIN chinook.tracks t 
+ON i.TrackID=t.TrackID
+INNER JOIN chinook.albums a
+ON a.AlbumID=t.AlbumID
+LEFT JOIN chinook.artists ar
+ON ar.ArtistID=a.ArtistID;
 
 #12. 
 SELECT t.Name AS 'Track Name', a.Title AS 'Album Title', m.Name AS 'Media Type', g.Name AS 'Genre'
 FROM chinook.tracks t
-JOIN chinook.Albums a on a.AlbumId = t.AlbumId
-JOIN chinook.Media_Types m on m.MediaTypeId = t.MediaTypeId
-JOIN chinook.Genres g on g.GenreId = t.GenreId;
+JOIN chinook.Albums a 
+on a.AlbumId = t.AlbumId
+JOIN chinook.Media_Types m
+on m.MediaTypeId = t.MediaTypeId
+JOIN chinook.Genres g
+on g.GenreId = t.GenreId;
 
 #13.
 SELECT emp.FirstName, emp.LastName,
