@@ -3,18 +3,24 @@
 #1. How many orders were placed in January? 
 SELECT COUNT(orderid)
 FROM BIT_DB.JanSales
+WHERE orderid <> '' 
+AND orderid <> 'Order ID'
 
 #2. How many of those orders were for an iPhone? 
 SELECT COUNT(orderid)
 FROM BIT_DB.JanSales
 WHERE Product='iPhone'
+AND orderid <> '' 
+AND orderid <> 'Order ID'
 
 #3. Select the customer account numbers for all the orders that were placed in February. 
-SELECT acctnum
+SELECT distinct acctnum
 FROM BIT_DB.customers cust
 
 INNER JOIN BIT_DB.FebSales Feb
 ON cust.order_id=FEB.orderid
+WHERE order_id <> '' 
+AND order_id <> 'Order ID'
 
 #4. Which product was the cheapest one sold in January, and what was the price? 
 SELECT distinct Product, price
@@ -47,3 +53,5 @@ FROM BIT_DB.FebSales Feb
 LEFT JOIN BIT_DB.customers cust
 ON FEB.orderid=cust.order_id
 WHERE Feb.Quantity>2
+AND order_id <> '' 
+AND order_id <> 'Order ID'
