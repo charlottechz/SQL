@@ -4,4 +4,4 @@
 
 ## This is my example portfolio for students of my Data Analytics Certificate Program :)
 
-#### To join the program and create your own portfolio, you can [go here!]([https://breakintotech.teachable.com/p/da-launch/](https://howtobreakintotech.com/data-analytics-certificate-program/))
+#### To join the program and create your own portfolio, you can [go here!]([(https://howtobreakintotech.com/data-analytics-certificate-program/])
