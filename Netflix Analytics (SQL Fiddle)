@@ -78,7 +78,7 @@ select title
 FROM "netflix_titles_info"
 ORDER BY title asc;
 
-#4. Who was the Director for the movie Bright Star? 
+#4. Who was the Director for the movie The Starling? 
 select 
 director
 FROM "netflix_titles_info" titles
