@@ -28,16 +28,16 @@ VALUES
     (15, 'Cozy Throw Blanket', 'Furnishings', 24.99, 100, 4.2);
 
 
-#Write your own SQL query that will use a SELECT statement to order the items by price.
+#Use a SELECT statement to order the items by price.
 SELECT item_name, price
 FROM superstore
 ORDER BY price desc;
 
-#Write your own SQL query that will show a statistic about the item prices.
+#Show a statistic about the item prices.
 SELECT avg(price)
 FROM superstore;
 
-#Write your own SQL query that will show a statistic about the price for items in the category of "Kitchen Supplies". 
+#Show a statistic about the price for items in the category of "Kitchen Supplies". 
 SELECT avg(price)
 FROM superstore
 WHERE category="Kitchen Supplies"
