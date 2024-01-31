@@ -8,4 +8,4 @@
 
 *This is an example portfolio for students of the Break Into Tech Data Analytics Certificate Course* :)  
 
-To join the program and create your own portfolio, [go here!](https://howtobreakintotech.com/data-analytics-certificate-program/)
+To enroll and create your own portfolio, [go here!](https://howtobreakintotech.com/data-analytics-certificate-program/)
