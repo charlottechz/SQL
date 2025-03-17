@@ -1,0 +1,52 @@
+Climate Conference Project
+Database: https://www.db-fiddle.com/f/pxMci1sLL945KHKYvpe9W6/1
+
+LEFT JOIN: List all VIPs and their associated hotel reservations, including VIPs who may not have made a reservation.
+SELECT v.member_id, v.first_name, v.last_name, r.hotel
+FROM vips v
+LEFT JOIN reservations r ON v.member_id = r.member_id;
+
+INNER JOIN: Find the names of VIPs who have RSVP’d for the welcome event.
+SELECT v.first_name, v.last_name
+FROM vips v
+INNER JOIN reservations r ON v.member_id = r.member_id
+WHERE r.welcome_rsvp = 1;
+
+Multiple JOINs: Retrieve event names, attendee names, and their hotel names.
+SELECT e.event_name, v.first_name, v.last_name, h.hotel_name
+FROM vips v
+INNER JOIN events e ON v.event = e.event_id
+LEFT JOIN reservations r ON v.member_id = r.member_id
+LEFT JOIN hotels h ON r.hotel = h.hotel_id;
+
+SELF JOIN: Find VIPs who provide feedback to others and the corresponding VIPs who receive their feedback.
+SELECT v1.first_name AS feedback_giver, v1.last_name AS giver_last, 
+       v2.first_name AS feedback_receiver, v2.last_name AS receiver_last
+FROM vips v1
+JOIN vips v2 ON v1.provides_feedback_to = v2.member_id;
+
+Query with a Subquery: Find VIPs staying at the hotel with the most reservations.
+SELECT v.first_name, v.last_name, h.hotel_name
+FROM vips v
+JOIN reservations r ON v.member_id = r.member_id
+JOIN hotels h ON r.hotel = h.hotel_id
+WHERE r.hotel = (
+    SELECT hotel 
+    FROM reservations 
+    GROUP BY hotel 
+    ORDER BY COUNT(*) DESC 
+    LIMIT 1
+);
+
+Custom Query: Get a list of all government-affiliated VIPs who have RSVP’d for dinner.
+SELECT v.first_name, v.last_name, v.association
+FROM vips v
+JOIN reservations r ON v.member_id = r.member_id
+WHERE v.assoc_type = 'government' AND r.dinner_rsvp = 1;
+
+Custom Query: Find the number of VIPs attending each event, ordered by event attendance.
+SELECT e.event_name, COUNT(v.member_id) AS attendee_count
+FROM events e
+LEFT JOIN vips v ON e.event_id = v.event
+GROUP BY e.event_name
+ORDER BY attendee_count DESC;
